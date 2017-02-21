@@ -7,6 +7,7 @@ import (
 
 func main() {
 	//testdemo.StartServer()
+	grammar.DemoInit()
 	grammar.DemoFlow()
 	grammar.DemoArray()
 	grammar.DemoMap()

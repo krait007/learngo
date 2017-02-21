@@ -2,6 +2,29 @@ package grammar
 
 import "fmt"
 
+func DemoInit() {
+	type Rect struct {
+		x, y          float64
+		width, height float64
+	}
+
+	fmt.Printf("-------------------------------------------\n")
+	fmt.Printf("Run DemoInit ...\n\n")
+
+	rect1 := new(Rect)
+	rect2 := &Rect{}
+	rect3 := &Rect{0, 0, 100, 200}
+	rect4 := &Rect{width: 100, height: 200}
+
+	fmt.Print("define rects\nrect1 := new(Rect) \n",
+		"rect2 := &Rect{} \n",
+		"rect3 := &Rect{0, 0, 100, 200} \n",
+		"rect4 := &Rect{width: 100, height: 200} \n")
+
+	fmt.Printf("print rects value:\nrect1: %v\nrect2: %v\nrect3: %v\nrect4: %v\n",
+		rect1, rect2, rect3, rect4)
+}
+
 func switchExample(i int) {
 	fmt.Printf("switch i=%d result is: ", i)
 	switch i {
