@@ -2,6 +2,87 @@ package grammar
 
 import "fmt"
 
+func switchExample(i int) {
+	fmt.Printf("switch i=%d result is: ", i)
+	switch i {
+	case 0:
+		fmt.Printf("0")
+	case 1:
+		fmt.Printf("1")
+	case 2:
+		fallthrough
+	case 3:
+		fmt.Printf("3")
+	case 4, 5, 6:
+		fmt.Printf("4, 5, 6")
+	default:
+		fmt.Printf("Default")
+	}
+	fmt.Printf("\n")
+
+}
+
+//demo flow control
+//if else, switch case ..., for, goto break continue fallthrough
+func DemoFlow() {
+	fmt.Printf("-------------------------------------------\n")
+	fmt.Printf("Run DemoFlow ...\n\n")
+	len := 5
+	if len > 10 {
+		fmt.Printf("len > 10 is true \n")
+	} else {
+		fmt.Printf("len > 10 is false \n")
+	}
+
+	if len = 100; len > 10 {
+		fmt.Printf("len = 100; len > 10 is true \n")
+	} else {
+		fmt.Printf("len = 100; len > 10 is false \n")
+	}
+
+	fmt.Printf("example for switch and fallthrough \n")
+	switchExample(0)
+	switchExample(1)
+	switchExample(2)
+	switchExample(3)
+	switchExample(4)
+	switchExample(5)
+	switchExample(6)
+	switchExample(7)
+
+	fmt.Printf("example for: without expression after switch keyword \n")
+	num := 5
+	switch {
+	case 0 <= num && num <= 3:
+		fmt.Printf("num is 0-3")
+	case 4 <= num && num <= 6:
+		fmt.Printf("num is 4-6")
+	case 7 <= num && num <= 9:
+		fmt.Printf("num is 7-9")
+	}
+	fmt.Print("\n")
+
+	////////////////////////////////////////
+	sum := 0
+	for i := 0; i < 10; i++ {
+		sum += i
+	}
+
+	sum = 0
+	for {
+		sum++
+		if sum > 100 {
+			break // break somelabel
+		}
+	}
+
+	a := []int{1, 2, 3, 4, 5, 6}
+	for i, j := 0, 5; i < j; i, j = i+1, j-1 {
+		a[i], a[j] = a[j], a[i]
+	}
+
+}
+
 func DemoArray() {
 	var arr1 [3]int
 	var arr2 = [3]int{1, 2, 3}
@@ -78,7 +159,7 @@ func DemoMap() {
 
 	fmt.Printf("\n-------------------------------------------\n")
 	fmt.Printf("Run DemoMap ...\n\n")
-	fmt.Printf("Define a map format: \nmap[<from type>]<to type> \nmake(map[string]int)  \n\n")
+	fmt.Printf("Define a map format: \nmap[<from type>]<to type> \nmake(map[string]int) \nmake(map[string] int, init_size ) \n\n")
 
 	fmt.Printf("add a month: monthdays[\"Undecim\"] = 30 \n")
 	monthdays["Undecim"] = 30
